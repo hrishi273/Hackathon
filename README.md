@@ -20,3 +20,7 @@ To Run the project
 - Run the commands
   - bundle install
   - rails s
+- Default username and password for admin login is
+  - username => "admin"
+  - password => "password"
+- You can create as many users as you want through admin login
