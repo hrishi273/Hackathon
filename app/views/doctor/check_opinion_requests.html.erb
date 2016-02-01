@@ -1,0 +1,34 @@
+<center>
+	<h2>Check Opinion Requests</h2>
+	<hr>
+	<br>
+</center>
+
+<% if @requests.size > 0 %>
+	<table class="table table-striped">
+		<tr>
+			<th class="col-md-1">No</th>
+			<th class="col-md-5">Patient Name</th>
+			<th class="col-md-4">Date</th>
+			<th class="col-md-2"></th>
+		</tr>
+		<% i=1 %>
+		<% @requests.each do |req| %>
+			<tr>
+				<td><%= i %></td>
+				<td><% @p = Patient.find(req.patient_id) %><%= @p.name %></td>
+				<td><%= req.created_at %></td>
+				<td><%= link_to "Give Opinion",give_opinion_path(@p.name,Report.find(req.report_id)) %></td>
+			</tr>
+			<% i+=1 %>
+		<% end %>
+	</table>
+	<center><%= paginate @requests %></center>
+<% else %>
+	<center><h3>Not Requests Yet!</h3></center>
+<% end %>
+
+<center>
+	<hr>
+	<%= link_to "Back",doctors_path,class:"btn btn-default button" %>
+</center>

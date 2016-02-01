@@ -1,0 +1,16 @@
+<center>
+	<h2>Book Appointment</h2>
+	<hr>
+	<br>
+</center>
+
+<%= simple_form_for (@appointment),url: :book_appointment do |f| %>
+	<%= f.input :date %>
+	<%= f.input :lab_id,collection: @labs.all %>
+	<br>
+	<center><%= f.button :submit,"Book" %></center>
+<% end %>
+
+<br>
+<center><hr></center>
+<%= link_to "Back",patient_path(@patient.name),class:"btn btn-default button" %>

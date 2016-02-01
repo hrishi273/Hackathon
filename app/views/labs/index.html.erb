@@ -1,0 +1,20 @@
+<center><h2>Welcome <%= current_user.fullname %></h2></center>
+<center><br><hr></center>
+<br>
+
+<% if notice %>
+	<div class="alert alert-info fade in">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<strong><%= notice %></strong>
+	</div>
+<% end %>
+
+<center>
+
+<div class="btn-group-vertical">	
+	<%= link_to "Add A Report For Patient",add_report_path,{class:"btn btn-default button"} %><br>
+	<%= link_to "Check Appointments ",check_lab_appointments_path,{class:"btn btn-default button"} %><br>
+	<%= link_to "Patient Information ",patient_info_path,{class:"btn btn-default button"} %>
+</div>
+
+</center>

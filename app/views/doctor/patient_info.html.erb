@@ -1,0 +1,36 @@
+
+<% if notice %>
+  <div class="alert alert-info fade in">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <%= notice %>
+  </div>
+<% end %>
+
+<h1>Listing Patients</h1>
+<hr>
+<table class="table">
+  <thead>
+    <tr>
+      <th class="col-md-5">Name</th>
+      <th class="col-md-4">Contact</th>
+      <th class="col-md-3">Blood group</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @patients.each do |patient| %>
+      <tr>
+        <td><%= patient.name %></td>
+        <td><%= patient.contact %></td>
+        <td><%= patient.blood_group %></td>
+        <td><%= link_to 'Show', show_d_patient_path(patient.name) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<center><%= paginate @patients %></center>
+<br>
+<hr>
+
+<%= link_to "Back",doctors_path,class:"btn btn-default button" %>

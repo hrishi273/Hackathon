@@ -1,0 +1,11 @@
+<center>
+	<h2>Welcome <%= current_user.username %></h2>
+	<hr>
+	<br>
+
+<div class="btn-group-vertical">
+	<%= link_to "Create User",create_user_path,class:"btn btn-default button" %><br>
+	<%= link_to "Manage Users",manage_users_path,class:"btn btn-default button" %><br>
+</div>
+
+</center>

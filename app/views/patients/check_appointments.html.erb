@@ -1,0 +1,29 @@
+<center>
+	<h2>Check Your Appointments</h2>
+	<hr>
+	<br>
+</center>
+
+<table class="table table-bordered">
+	<tr>
+		<th class="col-md-1">No</th>
+		<th class="col-md-7">Appointment at</th>
+		<th class="col-md-4">Date</th>
+	</tr>
+	<% i=1 %>
+	<% @appointments.each do |app| %>
+		<tr>
+			<td><%= i %></td>
+			<td><% @l=Lab.find(app.lab_id) %><%= @l.name %></td>
+			<td><%= app.date %></td>
+		</tr>
+		<% i+=1 %>
+	<% end %>
+</table>
+
+<center><%= paginate @appointments %>
+
+<br>
+<hr>
+<%= link_to "Back",patient_path(@patient.name),class:"btn btn-default button" %>
+</center>

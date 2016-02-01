@@ -1,0 +1,42 @@
+<center>
+	<h2>Report</h2>
+	<hr>
+</center>
+<br>
+<h3>Name : <%= @patient.name %></h3>
+<h3>Date : <%= @report.date %></h3>
+<table class="table table-bordered">
+    <tr>
+        <th class="col-md-1">No</th>
+        <th class="col-md-5">Test For</th>
+        <th class="col-md-3">Results</th>
+        <th class="col-md-3">Remarks</th>
+    </tr>
+    <% i=1 %>
+	    <% @report.tests.each do |test| %>
+        <tr>
+    	    <td><%= i %></td>
+            <td><%= test.test_for %></td>
+            <td><%= test.result %></td>
+            <td><%= test.remark %></td>
+        </tr>
+        <% i+=1 %>
+    <% end %>
+</table>
+<br>
+
+<center>
+    <h2>Give Opinion</h2>
+    <hr>
+</center>
+
+<%= simple_form_for @opinion,url: :give_opinion do |f| %>
+    <%= f.input :opinion_text,as: :text %>
+    <center><%= f.button :submit,"Save" %></center>
+<% end %>
+
+<center>
+    <br>
+    <hr>
+    <%= link_to "Back",show_d_patient_path(@patient.name),class:"btn btn-default button" %>
+</center>

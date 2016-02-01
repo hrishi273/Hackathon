@@ -1,0 +1,14 @@
+<% if notice %>  
+  <div class="alert alert-info">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong><%= notice %></strong>
+  </div>
+<% end %>
+
+<%= render 'patient',patient: @patient %>
+
+<center><hr></center>
+<div class="row">
+    <div class="col-md-6"><center><%= link_to "Book Appointment For Test",book_appointment_path,{class:"btn btn-default button"} %></center></div>
+    <div class="col-md-6"><center><%= link_to "Check Your Appointments",check_patient_appointments_path,{class:"btn btn-default button"} %></center></div>
+</div>

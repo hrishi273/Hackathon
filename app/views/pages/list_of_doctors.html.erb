@@ -1,0 +1,33 @@
+<center>
+	<h2>List Of Affiliated Doctors</h2>
+	<hr>
+	<br>
+</center>
+
+<table class="table table-bordered">
+	<tr>
+		<th class="col-md-1">No</th>
+		<th class="col-md-4">Name</th>
+		<th class="col-md-2">Degree</th>
+		<th class="col-md-2">Specialization</th>
+		<th class="col-md-3">Contact</th>
+	</tr>
+	<% i=1 %>
+	<% @doctors.each do |d| %>
+		<tr>
+			<td><%= i %></td>
+			<td><%= d.name %></td>
+			<td><%= d.degree %></td>
+			<td><%= d.specialization %></td>
+			<td><%= d.contact.to_i %></td>
+		</tr>
+		<% i+=1 %>
+	<% end %>
+</table>
+
+<center>
+	<%= paginate @doctors %>
+	<hr>
+	<br>
+	<%= link_to "Back",root_url,class:"btn btn-default button" %>
+</center>

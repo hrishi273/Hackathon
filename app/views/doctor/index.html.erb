@@ -1,0 +1,11 @@
+<center>
+	<h2>Welcome Dr. <%= @doctor.name %></h2>
+	<hr>
+	<br>
+
+	<div class="btn-group-vertical">
+		<%= link_to "Check Profile",show_profile_path,class:"btn btn-default button" %><br>
+		<%= link_to "Patient Information",patient_d_info_path,class:"btn btn-default button" %><br>
+		<%= link_to "Check Opinion Requests",check_opinion_requests_path,class:"btn btn-default button" %><br>
+	</div>
+</center>

@@ -1,0 +1,31 @@
+<center>
+	<h2>List Of Affiliated Laboratories</h2>
+	<hr>
+	<br>
+</center>
+
+<table class="table table-bordered">
+	<tr>
+		<th class="col-md-1">No</th>
+		<th class="col-md-4">Name</th>
+		<th class="col-md-4">Address</th>
+		<th class="col-md-3">Contact</th>
+	</tr>
+	<% i=1 %>
+	<% @labs.each do |l| %>
+		<tr>
+			<td><%= i %></td>
+			<td><%= l.name %></td>
+			<td><%= l.address %></td>
+			<td><%= l.contact %></td>
+		</tr>
+		<% i+=1 %>
+	<% end %>
+</table>
+
+<center>
+	<%= paginate @labs %>
+	<hr>
+	<br>
+	<%= link_to "Back",root_url,class:"btn btn-default button" %>
+</center>

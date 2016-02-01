@@ -1,0 +1,72 @@
+<center>
+	<h2>Report</h2>
+	<hr>
+</center>
+<br>
+<h3>Date:<%= @report.date %></h3>
+<table class="table table-bordered">
+    <tr>
+        <th class="col-md-1">No</th>
+        <th class="col-md-5">Test For</th>
+        <th class="col-md-3">Results</th>
+        <th class="col-md-3">Remarks</th>
+    </tr>
+    <% i=1 %>
+	    <% @report.tests.each do |test| %>
+        <tr>
+    	    <td><%= i %></td>
+            <td><%= test.test_for %></td>
+            <td><%= test.result %></td>
+            <td><%= test.remark %></td>
+        </tr>
+        <% i+=1 %>
+    <% end %>
+</table>
+<br>
+<center><h2>Ask For Opinion</h2></center>
+<center><hr></center>
+<br>
+<%= simple_form_for :opinion,url: :see_report do |f| %>
+    <div class="row">
+        <div class="col-md-6"><%= f.input :doctor1,collection:Doctor.all %></div>
+        <div class="col-md-6"><%= f.input :doctor2,collection:Doctor.all %></div>
+    </div>
+    <br>
+    <center><%= f.button :submit,"Ask Opinion" %></center>
+<% end %>
+
+<br>
+<center>
+    <h2>Opinions</h2>
+    <hr>
+</center>
+<% if @opinions.size > 0 %>
+    <% @opinions.each do |op| %>
+        <% @d = Doctor.find(op.doctor_id) %>
+        <h4>Opinion by : Dr. <%= @d.name %></h4>
+        <h5><%= op.opinion_text %></h5>
+        <br>
+    <% end %>
+<% else %>
+    <h3>No Opinions Yet!</h3>
+<% end %>
+<br>
+
+<br>
+<center>
+    <h2>Treatment</h2>
+    <hr>
+</center>
+<% if !@treatment.nil? %>
+    <h3>Treatment According to Given Report</h3>
+    <%= @treatment.prescription %>
+<% else %>
+    <h3>No Treatment Yet!</h3>
+<% end %>
+<br>
+
+<center>
+<br>
+<hr>
+<%= link_to "Back",patient_path(@patient.name),class:"btn btn-default button" %>
+</center>

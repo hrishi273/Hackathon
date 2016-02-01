@@ -1,0 +1,16 @@
+<center>
+	<h2>Create Users</h2>
+	<hr>
+	<br>
+</center>
+
+<%= simple_form_for :user,action: :create_user do |f| %>
+	<%= f.input :fullname %>
+	<%= f.input :username %>
+	<%= f.input :role,collection: ["Patient","Doctor","Lab Manager"] %>
+	<%= f.input :password %>
+
+	<center><hr></center>
+	<%= link_to "Back",admin_index_path,class:"btn btn-default button" %>
+	<%= f.button :submit,"Create User",style:"float:right" %>
+<% end %>

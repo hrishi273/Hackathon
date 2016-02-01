@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HealthcareM2</title>
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= render 'layouts/navbar' %>
+<div class="wrapper clearfix">
+	<% if alert %>
+  		<div class="alert alert-info fade in">
+	    	<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+	    	<strong><%= alert %></strong>
+  		</div>
+	<% end %>
+	<%= yield %>
+</div>
+
+</body>
+</html>

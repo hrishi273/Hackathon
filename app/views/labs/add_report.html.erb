@@ -1,0 +1,26 @@
+<center><h2>Add New Report</h2><br><hr></center>
+<br>
+
+<%= simple_form_for @report,url: :add_report do |f| %>
+	<%= f.error_notification %>
+
+	<div class="form-inputs">
+		<%= f.association :patient %>
+		<%= f.input :date %>
+		<%= f.nested_fields_for :tests do |ff| %>
+			<%= ff.input :test_for %>
+			<div class="row">	
+				<div class="col-md-6"><%= ff.input :result %></div>
+				<div class="col-md-6"><%= ff.input :remark %></div>
+			</div>	
+			<%= ff.remove_nested_fields_link "Remove Test",class:"btn btn-default button" %>
+		<% end %>
+	</div>
+	<br>
+	<center><hr></center>
+	<div class="form-actions">
+		<%= link_to "Back",labs_path,{class:"btn btn-default button"} %>
+		<%= f.add_nested_fields_link :tests,"Add Tests",class:"btn btn-default button" %>
+		<%= f.button :submit,"Generate Report",{class:"btn btn-default",style:"float:right"} %>
+	</div>
+<% end %>

@@ -1,0 +1,27 @@
+<center>
+	<h2>Dr. <%= @doctor.name %></h2>
+	<hr>
+	<br>
+</center>
+
+<table class="table table-bordered">
+	<tr>
+		<td>Degree</td>
+		<td><%= @doctor.degree %></td>
+	</tr>
+	<tr>
+		<td>Specialization</td>
+		<td><%= @doctor.specialization %></td>
+	</tr>
+	<tr>
+		<td>Contact</td>
+		<td><%= @doctor.contact %></td>
+	</tr>
+</table>
+
+<center>
+	<hr>
+	<br>
+</center>
+<%= link_to "Back",doctors_path,class:"btn btn-default button" %>
+<%= link_to "Edit Profile",edit_profile_path,{class:"btn btn-default button",style:"float:right"} %>
